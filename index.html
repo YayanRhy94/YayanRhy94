@@ -1,1 +1,307 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Resmi Desa Pasirjengkol</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Pengaturan Dasar & Variabel Warna */
+        :root {
+            --primary: #047857; /* Hijau zamrud untuk nuansa desa */
+            --primary-dark: #065f46;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+        }
+        
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Poppins', sans-serif; 
+        }
+        
+        body { 
+            background-color: var(--light); 
+            color: var(--dark); 
+            line-height: 1.6; 
+            scroll-behavior: smooth;
+        }
+        
+        a { text-decoration: none; color: inherit; }
+        
+        /* --- Navigasi (Navbar) --- */
+        header { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 1rem 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1); 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .logo { 
+            font-size: 1.5rem; 
+            font-weight: 700; 
+            color: var(--primary); 
+        }
+        
+        .nav-links { 
+            display: flex; 
+            gap: 2rem; 
+            list-style: none; 
+        }
+        
+        .nav-links a { 
+            font-weight: 600; 
+            transition: color 0.3s; 
+        }
+        
+        .nav-links a:hover { color: var(--primary); }
+        
+        /* --- Hero Section --- */
+        .hero { 
+            height: 100vh; 
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1596404984542-6f29555621fb?q=80&w=1920&auto=format&fit=crop') center/cover; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            color: white; 
+            padding: 0 5%; 
+        }
+        
+        .hero h1 { 
+            font-size: 3.5rem; 
+            margin-bottom: 1rem; 
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5); 
+        }
+        
+        .hero p { 
+            font-size: 1.2rem; 
+            margin-bottom: 2rem; 
+            max-width: 700px; 
+            font-weight: 300;
+        }
+        
+        .btn { 
+            padding: 0.8rem 2.5rem; 
+            background: var(--primary); 
+            color: white; 
+            border-radius: 30px; 
+            font-weight: 600; 
+            transition: all 0.3s ease; 
+            border: none; 
+            cursor: pointer; 
+            display: inline-block;
+        }
+        
+        .btn:hover { 
+            background: var(--primary-dark); 
+            transform: translateY(-3px); 
+            box-shadow: 0 10px 20px rgba(4, 120, 87, 0.3);
+        }
 
+        /* --- Pengaturan Section Umum --- */
+        section { padding: 6rem 5%; }
+        .section-title { 
+            text-align: center; 
+            font-size: 2.5rem; 
+            margin-bottom: 3rem; 
+            color: var(--primary-dark); 
+        }
+        
+        /* --- Bagian Profil Desa --- */
+        .profil-container { 
+            display: flex; 
+            gap: 4rem; 
+            align-items: center; 
+        }
+        
+        .profil-img { 
+            flex: 1; 
+            border-radius: 20px; 
+            overflow: hidden; 
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15); 
+        }
+        
+        .profil-img img { 
+            width: 100%; 
+            height: auto; 
+            display: block; 
+            transition: transform 0.5s ease;
+        }
+        
+        .profil-img img:hover { transform: scale(1.05); }
+        
+        .profil-text { flex: 1; }
+        .profil-text h3 { font-size: 2rem; margin-bottom: 1rem; }
+        .profil-text p { color: var(--gray); margin-bottom: 1.5rem; font-size: 1.05rem; }
+
+        /* --- Bagian Program / Layanan --- */
+        #program { background: white; }
+        .cards-container { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 2.5rem; 
+        }
+        
+        .card { 
+            background: var(--light); 
+            padding: 2.5rem 2rem; 
+            border-radius: 20px; 
+            text-align: center; 
+            transition: all 0.3s ease; 
+            border: 1px solid #e2e8f0;
+        }
+        
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+            border-color: var(--primary);
+        }
+        
+        .card-icon { font-size: 3.5rem; margin-bottom: 1.5rem; }
+        .card h3 { margin-bottom: 1rem; color: var(--dark); font-size: 1.4rem; }
+        .card p { color: var(--gray); font-size: 1rem; }
+
+        /* --- Bagian Kontak --- */
+        .contact-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+        .contact-item span {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: var(--primary);
+        }
+
+        /* --- Footer --- */
+        footer { 
+            background: var(--dark); 
+            color: white; 
+            text-align: center; 
+            padding: 3rem 5%; 
+        }
+        
+        footer h2 { margin-bottom: 0.5rem; font-weight: 600; }
+        footer p { color: #94a3b8; font-size: 0.95rem; margin-top: 0.5rem; }
+
+        /* --- Media Queries (Responsif untuk Layar HP) --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Pada versi sederhana, menu disembunyikan di HP */
+            .hero h1 { font-size: 2.2rem; }
+            .profil-container { flex-direction: column; gap: 2rem; }
+            section { padding: 4rem 5%; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">Desa Pasirjengkol</div>
+        <ul class="nav-links">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#profil">Profil Desa</a></li>
+            <li><a href="#program">Program & Layanan</a></li>
+            <li><a href="#kontak">Kontak Kami</a></li>
+        </ul>
+    </header>
+
+    <section id="beranda" class="hero">
+        <h1>Selamat Datang di Desa Pasirjengkol</h1>
+        <p>Mewujudkan Desa yang Maju, Inovatif, Sejahtera, dan Sadar Hukum di Kecamatan Majalaya, Kabupaten Karawang, Jawa Barat.</p>
+        <a href="#profil" class="btn">Kenali Desa Kami</a>
+    </section>
+
+    <section id="profil">
+        <h2 class="section-title">Profil Desa</h2>
+        <div class="profil-container">
+            <div class="profil-text">
+                <h3>Tentang Pasirjengkol</h3>
+                <p>Desa Pasirjengkol adalah desa yang berkembang pesat dengan harmoni antara kehidupan agraris dan modernisasi yang berlokasi di Kecamatan Majalaya, Kabupaten Karawang. Kami berkomitmen memberikan transparansi dan kemudahan layanan untuk warga.</p>
+                <p>Didukung oleh semangat kebersamaan masyarakat, kami saat ini juga sedang dalam tahap penilaian untuk meraih predikat bergengsi <strong>Desa Sadar Hukum</strong> secara nasional.</p>
+            </div>
+            <div class="profil-img">
+                <img src="https://images.unsplash.com/photo-1506526192543-c2ceb41df1db?q=80&w=1000&auto=format&fit=crop" alt="Pemandangan Desa yang Asri">
+            </div>
+        </div>
+    </section>
+
+    <section id="program">
+        <h2 class="section-title">Program & Layanan Unggulan</h2>
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-icon">🏛️</div>
+                <h3>Layanan Administrasi</h3>
+                <p>Kemudahan pengurusan dokumen kependudukan seperti KK, KTP, dan perizinan secara terpadu langsung di balai desa.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚖️</div>
+                <h3>Desa Sadar Hukum</h3>
+                <p>Sistem edukasi dan penyuluhan berkelanjutan untuk memastikan masyarakat melek aturan dan mendapatkan akses keadilan.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🌾</div>
+                <h3>Pemberdayaan UMKM</h3>
+                <p>Dukungan nyata bagi para pelaku ekonomi kreatif lokal dan sektor tani agar mampu bersaing di tingkat nasional.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontak">
+        <h2 class="section-title">Hubungi Kami</h2>
+        <div class="contact-box">
+            <div class="contact-item">
+                <span>📍</span>
+                <p><strong>Alamat:</strong> Kantor Kepala Desa Pasirjengkol, Kecamatan Majalaya, Kabupaten Karawang, Jawa Barat 41371</p>
+            </div>
+            <div class="contact-item">
+                <span>🕒</span>
+                <p><strong>Jam Operasional:</strong> Senin - Jumat (08.00 - 15.00 WIB)</p>
+            </div>
+            <div class="contact-item">
+                <span>✉️</span>
+                <p><strong>Email:</strong> pemdes@pasirjengkol.desa.id</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <h2>Pemerintah Desa Pasirjengkol</h2>
+        <p>Kec. Majalaya, Kab. Karawang, Provinsi Jawa Barat</p>
+        <p>&copy; 2026 Desa Pasirjengkol. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
